@@ -2,6 +2,8 @@
 
 ##Learning Competencies
 
+* Store and access data in a data structure
+
 ##Summary
 
 Arrays are exceedingly useful for storing collections of data due to their flexibility and simplicity. The possibilities for different uses of arrays are limitless.
@@ -29,13 +31,10 @@ We can index into a grid with the pattern `array[row][column]`.
 
 For example, in the `tic_tac_toe` array above, we can access the center tic tac toe box by writing `tic_tac_toe[1][1]`, since it is in the 1st row, 1st column. (Remember, arrays start counting at zero!)
 
-### Learning Goals
-* creating nested arrays
-* accessing and changing nested arrays
 
-## Objectives
+##Releases
 
-### Chessboard
+###Release 0 : Chessboard
 
 Build an array to represent a chess board.
 
@@ -48,7 +47,7 @@ Populate it with the appropriate pieces represented as strings, i.e. `"W Knight"
 puts chessboard[7][0] == "W Rook"    # outputs true
 ```
 
-### Data table
+###Release 1 : Data table
 
 Nested arrays can also be used as a way to store data in a table format, similar to a spreadsheet.
 
@@ -72,10 +71,6 @@ When complete, you should be able to index into it like this:
 puts table[3][2] == "Shooting Guard"      # outputs true
 puts table[1][3] == [14, 32, 7, 0, 23]    # outputs true
 ```
-
-##Releases
-###Release 0
-
-##Optimize Your Learning
+<!-- ##Optimize Your Learning -->
 
 ##Resources
