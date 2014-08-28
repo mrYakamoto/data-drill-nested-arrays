@@ -52,8 +52,6 @@ Write some simple rspec tests to prove that your board generator is working corr
 
 Nested arrays can also be used as a way to store data in a table format, similar to a spreadsheet.
 
-You can use the first nested array to store the headers, and then each of the subsequent nested arrays can store the values in the particular column.
-
 Create a method that builds an array to store this data:
 
 ```text
