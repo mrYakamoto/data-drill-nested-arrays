@@ -2,7 +2,7 @@ require_relative "nested_arrays"
 
 describe "#generate_roster" do
   let(:roster) { generate_roster }
-  let(:just_player_data) { roster.shift }
+  let(:just_player_data) { roster.shift; roster }
 
   it "returns a roster as an Array" do
     expect(roster).to be_a Array
