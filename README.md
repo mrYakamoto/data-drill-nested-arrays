@@ -68,8 +68,8 @@ Build an array to store this tabular data:
 When complete, you should be able to index into it like this:
 
 ```ruby
-puts table[2][2] == "Shooting Guard"      # outputs true
-puts table[0][3] == [14, 32, 7, 0, 23]    # outputs true
+puts table[3][2] == "Shooting Guard"      # outputs true
+puts table[1][3] == [14, 32, 7, 0, 23]    # outputs true
 ```
 <!-- ##Optimize Your Learning -->
 
