@@ -36,24 +36,23 @@ For example, in the `tic_tac_toe` array above, we can access the center tic tac 
 
 ###Release 0 : Chessboard
 
-Build an array to represent a chess board.
+Create a method that builds an array representing a chess board.
 
-Populate it with the appropriate pieces represented as strings, i.e. `"W Knight", "B Pawn", "B Queen", etc. Don't overthink this!  It's as simple as it seems.
-
-**Extra Credit:** If you cringe at the thought of creating the whole board by hand and how much repetition that will be, create a method that generates the board, and DRY it up!
+The method you write should also populate the board with the appropriate pieces represented as strings, i.e. `"W Knight", "B Pawn", "B Queen", etc. Don't overthink this!  It's as simple as it seems.
 
 ```ruby
 # Example usage:
-puts chessboard[7][0] == "W Rook"    # outputs true
+board = generate_chessboard
+puts board[7][0] == "W Rook"    # outputs true
 ```
+
+Write some simple rspec tests to prove that your board generator is working correctly.
 
 ###Release 1 : Data table
 
 Nested arrays can also be used as a way to store data in a table format, similar to a spreadsheet.
 
-You can use the first nested array to store the headers, and then each of the subsequent nested arrays can store the values in the particular column.
-
-Build an array to store this tabular data:
+Create a method that builds an array to store this data:
 
 ```text
 | Number  | Name        | Position       | Points per Game      |
@@ -71,6 +70,11 @@ When complete, you should be able to index into it like this:
 puts table[2][2] == "Shooting Guard"      # outputs true
 puts table[0][3] == [14, 32, 7, 0, 23]    # outputs true
 ```
-<!-- ##Optimize Your Learning -->
+
+Write some rspec tests to prove that your table generator is correct.
+
+**Extra Credit**: It's kind of silly to code this table by hand in the generator method. Can you write a method that allows you to add a new row to an existing table? If you do, make sure you have tests to prove that your extra credit work functions correctly as well.
 
 ##Resources
+
+ * [Chess Board](http://designindevelopment.com/wp-content/uploads/2010/04/chessboard.jpg)
