@@ -34,13 +34,13 @@ describe "#generate_chessboard" do
     it "has a second row of all black pawns" do
       second_row = board[1]
 
-      expect(second_row.all? { |piece| piece == "B Pawn" })
+      expect(second_row.all? { |piece| piece == "B Pawn" }).to be true
     end
 
     it "has a second to last row of all white pawns" do
       second_to_last_row = board[-2]
 
-      expect(second_to_last_row.all? { |piece| piece == "W Pawn" })
+      expect(second_to_last_row.all? { |piece| piece == "W Pawn" }).to be true
     end
 
     it "has four empty rows" do
