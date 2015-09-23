@@ -1,4 +1,4 @@
-require_relative "../nested_arrays"
+require_relative "../chessboard"
 
 describe "#generate_chessboard" do
   let(:board) { generate_chessboard }

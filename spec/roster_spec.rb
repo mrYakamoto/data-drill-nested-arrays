@@ -1,4 +1,4 @@
-require_relative "../nested_arrays"
+require_relative "../roster"
 
 describe "#generate_roster" do
   let(:roster) { generate_roster }
