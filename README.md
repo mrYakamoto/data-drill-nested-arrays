@@ -28,46 +28,50 @@ This summary has talked about accessing values in nested arrays.  Our task in th
 
 
 ## Releases
-### Release 0 : Chessboard
-
-Create a method that builds an array representing a chess board.
-
-The method you write should also populate the board with the appropriate pieces represented as strings, i.e. `"W Knight", "B Pawn", "B Queen", etc. Don't overthink this!  It's as simple as it seems.
-
+### Release 0: Represent a Chessboard
 ```ruby
-# Example usage:
 board = generate_chessboard
-puts board[7][0] == "W Rook"    # outputs true
+# => [ ... ]
+board[7][0]
+# => "W Rook"
 ```
+*Figure 2*.  Generating a chessboard and accessing the piece in the first column of the last row.
 
-Write some simple rspec tests to prove that your board generator is working correctly.
 
-###Release 1 : Data table
+The first nested array structure that we want to produce is a chessboard.  We'll write a `generate_chessboard` method that returns a nested array representing a chessboard.  Pieces should be represented as strings (e.g., `'W Knight'` or `'B Pawn'`) and be placed in their positions at the start of the game.  Empty spaces should be represented as `nil`.  Tests have been written to describe the board.  (See Figure 2 for method usage examples.)
 
-Nested arrays can also be used as a way to store data in a table format, similar to a spreadsheet.
+Let's not make this more complicated than it needs to be; we just need to return the nested array.
 
-Create a method that builds an array to store this data:
 
-```text
+### Release 1: Represent Tabular Data
+
 | Number  | Name        | Position       | Points per Game      |
-+---------+-------------+----------------+----------------------+
+|---------|-------------|----------------|----------------------|
 | 12      | Joe Schmo   | Center         | [14, 32, 7, 0, 23]   |
 | 9       | Ms. Buckets | Point Guard    | [19, 0, 11, 22, 0]   |
 | 31      | Harvey Kay  | Shooting Guard | [0, 30, 16, 0, 25]   |
 | 18      | Sally Talls | Power Forward  | [18, 29, 26, 31, 19] |
 | 22      | MK DiBoux   | Small Forward  | [11, 0, 23, 17, 0]   |
-```
 
-When complete, you should be able to index into it like this:
+*Table 1*.  Roster data for a basketball team.
+
+A nested array could also be used to represent a data table—similar to a spreadsheet—like we see in Table 1.  Again, we have data that maps well to rows and columns.
 
 ```ruby
-puts table[3][2] == "Shooting Guard"      # outputs true
-puts table[1][3] == [14, 32, 7, 0, 23]    # outputs true
+roster = generate_roster
+# => [ ... ]
+roster[1]
+# => [12, "Joe Schmo", "Center", [14, 32, 7, 0, 23]]
+roster[1][2]
+# => "Center"
+roster[1][3]
+# => [14, 32, 7, 0, 23]
+roster[1][3][0]
+# => 14
 ```
+*Figure 3*.  Generating a roster data table and accessing values.
 
-Write some rspec tests to prove that your table generator is correct.
-
-**Extra Credit**: It's kind of silly to code this table by hand in the generator method. Can you write a method that allows you to add a new row to an existing table? If you do, make sure you have tests to prove that your extra credit work functions correctly as well.
+Let's write a `generate_roster` method that represents the data shown in Table 1 as a nested array.  As with the `generate_chessboard` method, this method only needs to return the specified nested array.  Tests have been provided to help us determine whether or not our method is behaving as desired. (See Figure 3 for method usage examples.)
 
 ##Resources
 
