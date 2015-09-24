@@ -1,40 +1,34 @@
-# Data Drill Nested Arrays
+# Data Drill: Nested Arrays
 
-##Learning Competencies
-
-* Store and access data in a data structure
-
-##Summary
-
-Arrays are exceedingly useful for storing collections of data due to their flexibility and simplicity. The possibilities for different uses of arrays are limitless.
-
-One common design pattern you will encounter is **nested arrays**, i.e. arrays within arrays. With nested arrays, we can store and organize data according to a variety of patterns.
+## Summary
+Arrays are useful objects for storing collections of data: a list of numbers, strings, or what-have-you. They are fairly simple objects, and their flexibility leads to limitless possibilities for use.  One common design pattern we''ll encounter is the *nested array*, an array whose elements are arrays themselves.  A list of lists, we could say.
 
 ```ruby
-nested_array = [ [1, 2], [3, 4], [5, 6] ]
-puts nested_array[1][0] == 3     # outputs true
+tic_tac_toe_board = [
+  ["X", "X", "O"],
+  ["O", "O", "X"],
+  ["X", "O", "X"]
+]
+
+first_row = tic_tac_toe_board[0]
+# => ["X", "X", "O"]
+
+first_row_third_column = first_row[2]
+# => "O"
 ```
+*Figure 1*.  Representing a grid in a nested array data structure.
 
-### Example: Grid Pattern
+Nested arrays are handy for representing grids, like a tic-tac-toe board (see Figure 1).  We generally think of grids in terms of rows and columns.  Nested arrays are a data structure that closely mimics this thinking.  We can think of the elements inside the outer array as rows.  And the elements within the individual rows are column values.
 
-Using nested arrays, we can represent a 2-dimensional grid of a tic tac toe board:
+If we wanted to get the first row of the grid, we can access the element at index 0.  Once we have that first row, then we can get the values in specific columns.  Figure 1 shows how we can access both the first row of the tic-tac-toe board and also how to get the value from the last column in that row.
 
-```ruby
-tic_tac_toe = [ ["X", "X", "O"],
-                ["O", "X", "O"],
-                ["O", "O", "X"] ]
-```
+In Figure 1, to get the value in the third column of the first row, we take the intermediary step of assigning the first row to a variable.  We then use the variable when we want to find the value of the third column.  We could eliminate this step and instead use method chaining:  `tic_tac_toe[0][2]`.
 
-Any element in a grid pattern has two indices: the first index identifies the "row" (the position of the nested array it is in) and the second index identifies the "column" (the position of the element within the nested array). In the example above, the number represents the row and the letter represents the column.
-
-We can index into a grid with the pattern `array[row][column]`.
-
-For example, in the `tic_tac_toe` array above, we can access the center tic tac toe box by writing `tic_tac_toe[1][1]`, since it is in the 1st row, 1st column. (Remember, arrays start counting at zero!)
+This summary has talked about accessing values in nested arrays.  Our task in this challenge is to build some nested arrays.
 
 
-##Releases
-
-###Release 0 : Chessboard
+## Releases
+### Release 0 : Chessboard
 
 Create a method that builds an array representing a chess board.
 
