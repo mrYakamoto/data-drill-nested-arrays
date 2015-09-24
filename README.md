@@ -73,6 +73,6 @@ roster[1][3][0]
 
 Let's write a `generate_roster` method that represents the data shown in Table 1 as a nested array.  As with the `generate_chessboard` method, this method only needs to return the specified nested array.  Tests have been provided to help us determine whether or not our method is behaving as desired. (See Figure 3 for method usage examples.)
 
-##Resources
 
- * [Chess Board](http://designindevelopment.com/wp-content/uploads/2010/04/chessboard.jpg)
+## Conclusion
+This challenge is designed to give us exposure to nested arrays.  What are they?  How can we use them to represent real-world data?  We'll encounter them as we continue through Dev Bootcamp.
