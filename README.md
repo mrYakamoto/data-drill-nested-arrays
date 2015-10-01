@@ -1,7 +1,7 @@
 # Data Drill: Nested Arrays
 
 ## Summary
-Arrays are useful objects for storing collections of data: a list of numbers, strings, or what-have-you. They are fairly simple objects, and their flexibility leads to limitless possibilities for use.  One common design pattern we''ll encounter is the *nested array*, an array whose elements are arrays themselves.  A list of lists, we could say.
+Arrays are useful objects for storing collections of data: a list of numbers, strings, or what-have-you. They are fairly simple objects, and their flexibility leads to limitless possibilities for use.  One common design pattern we'll encounter is the *nested array*, an array whose elements are arrays themselves.  A list of lists, we could say.
 
 ```ruby
 tic_tac_toe_board = [
