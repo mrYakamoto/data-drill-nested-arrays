@@ -1,80 +1,78 @@
-# Data Drill Nested Arrays
+# Data Drill: Nested Arrays
 
-##Learning Competencies
-
-* Store and access data in a data structure
-
-##Summary
-
-Arrays are exceedingly useful for storing collections of data due to their flexibility and simplicity. The possibilities for different uses of arrays are limitless.
-
-One common design pattern you will encounter is **nested arrays**, i.e. arrays within arrays. With nested arrays, we can store and organize data according to a variety of patterns.
+## Summary
+Arrays are useful objects for storing collections of data: a list of numbers, strings, or what-have-you. They are fairly simple objects, and their flexibility leads to limitless possibilities for use.  One common design pattern we'll encounter is the *nested array*, an array whose elements are arrays themselves.  A list of lists, we could say.
 
 ```ruby
-nested_array = [ [1, 2], [3, 4], [5, 6] ]
-puts nested_array[1][0] == 3     # outputs true
+tic_tac_toe_board = [
+  ["X", "X", "O"],
+  ["O", "O", "X"],
+  ["X", "O", "X"]
+]
+
+first_row = tic_tac_toe_board[0]
+# => ["X", "X", "O"]
+
+first_row_third_column = first_row[2]
+# => "O"
 ```
+*Figure 1*.  Representing a grid in a nested array data structure.
 
-### Example: Grid Pattern
+Nested arrays are handy for representing grids, like a tic-tac-toe board (see Figure 1).  We generally think of grids in terms of rows and columns.  Nested arrays are a data structure that closely mimics this thinking.  We can think of the elements inside the outer array as rows.  And the elements within the individual rows are column values.
 
-Using nested arrays, we can represent a 2-dimensional grid of a tic tac toe board:
+If we wanted to get the first row of the grid, we can access the element at index 0.  Once we have that first row, then we can get the values in specific columns.  Figure 1 shows how we can access both the first row of the tic-tac-toe board and also how to get the value from the last column in that row.
 
+In Figure 1, to get the value in the third column of the first row, we take the intermediary step of assigning the first row to a variable.  We then use the variable when we want to find the value of the third column.  We could eliminate this step and instead use method chaining:  `tic_tac_toe[0][2]`.
+
+This summary has talked about accessing values in nested arrays.  Our task in this challenge is to build some nested arrays.
+
+
+## Releases
+### Release 0: Represent a Chessboard
 ```ruby
-tic_tac_toe = [ ["X", "X", "O"],
-                ["O", "X", "O"],
-                ["O", "O", "X"] ]
-```
-
-Any element in a grid pattern has two indices: the first index identifies the "row" (the position of the nested array it is in) and the second index identifies the "column" (the position of the element within the nested array). In the example above, the number represents the row and the letter represents the column.
-
-We can index into a grid with the pattern `array[row][column]`.
-
-For example, in the `tic_tac_toe` array above, we can access the center tic tac toe box by writing `tic_tac_toe[1][1]`, since it is in the 1st row, 1st column. (Remember, arrays start counting at zero!)
-
-
-##Releases
-
-###Release 0 : Chessboard
-
-Create a method that builds an array representing a chess board.
-
-The method you write should also populate the board with the appropriate pieces represented as strings, i.e. `"W Knight", "B Pawn", "B Queen", etc. Don't overthink this!  It's as simple as it seems.
-
-```ruby
-# Example usage:
 board = generate_chessboard
-puts board[7][0] == "W Rook"    # outputs true
+# => [ ... ]
+board[7][0]
+# => "W Rook"
 ```
+*Figure 2*.  Generating a chessboard and accessing the piece in the first column of the last row.
 
-Write some simple rspec tests to prove that your board generator is working correctly.
 
-###Release 1 : Data table
+The first nested array structure that we want to produce is a chessboard.  We'll write a `generate_chessboard` method that returns a nested array representing a chessboard.  Pieces should be represented as strings (e.g., `'W Knight'` or `'B Pawn'`) and be placed in their positions at the start of the game.  Empty spaces should be represented as `nil`.  Tests have been written to describe the board.  (See Figure 2 for method usage examples.)
 
-Nested arrays can also be used as a way to store data in a table format, similar to a spreadsheet.
+Let's not make this more complicated than it needs to be; we just need to return the nested array.
 
-Create a method that builds an array to store this data:
 
-```text
+### Release 1: Represent Tabular Data
+
 | Number  | Name        | Position       | Points per Game      |
-+---------+-------------+----------------+----------------------+
+|---------|-------------|----------------|----------------------|
 | 12      | Joe Schmo   | Center         | [14, 32, 7, 0, 23]   |
 | 9       | Ms. Buckets | Point Guard    | [19, 0, 11, 22, 0]   |
 | 31      | Harvey Kay  | Shooting Guard | [0, 30, 16, 0, 25]   |
 | 18      | Sally Talls | Power Forward  | [18, 29, 26, 31, 19] |
 | 22      | MK DiBoux   | Small Forward  | [11, 0, 23, 17, 0]   |
-```
 
-When complete, you should be able to index into it like this:
+*Table 1*.  Roster data for a basketball team.
+
+A nested array could also be used to represent a data table—similar to a spreadsheet—like we see in Table 1.  Again, we have data that maps well to rows and columns.
 
 ```ruby
-puts table[3][2] == "Shooting Guard"      # outputs true
-puts table[1][3] == [14, 32, 7, 0, 23]    # outputs true
+roster = generate_roster
+# => [ ... ]
+roster[1]
+# => [12, "Joe Schmo", "Center", [14, 32, 7, 0, 23]]
+roster[1][2]
+# => "Center"
+roster[1][3]
+# => [14, 32, 7, 0, 23]
+roster[1][3][0]
+# => 14
 ```
+*Figure 3*.  Generating a roster data table and accessing values.
 
-Write some rspec tests to prove that your table generator is correct.
+Let's write a `generate_roster` method that represents the data shown in Table 1 as a nested array.  As with the `generate_chessboard` method, this method only needs to return the specified nested array.  Tests have been provided to help us determine whether or not our method is behaving as desired. (See Figure 3 for method usage examples.)
 
-**Extra Credit**: It's kind of silly to code this table by hand in the generator method. Can you write a method that allows you to add a new row to an existing table? If you do, make sure you have tests to prove that your extra credit work functions correctly as well.
 
-##Resources
-
- * [Chess Board](http://designindevelopment.com/wp-content/uploads/2010/04/chessboard.jpg)
+## Conclusion
+This challenge is designed to give us exposure to nested arrays.  What are they?  How can we use them to represent real-world data?  We'll encounter them as we continue through Dev Bootcamp.
