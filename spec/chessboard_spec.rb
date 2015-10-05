@@ -9,7 +9,7 @@ describe 'generate_chessboard' do
     end
 
     it 'has rows with eight spaces' do
-      row_lenghts = board.map(&:length)
+      row_lengths = board.map(&:length)
 
       expect(row_lengths).to all(be 8)
     end
